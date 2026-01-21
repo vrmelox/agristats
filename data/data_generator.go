@@ -1,5 +1,6 @@
 package main
 
+// This will be used to generate a dataset for the test. I want to build to see what can i do, even thought my mind find time waste and needed to do a lot of research
 import (
 	"bufio"
 	"errors"
