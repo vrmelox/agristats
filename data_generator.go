@@ -7,6 +7,14 @@ import (
 	"time"
 )
 
+type Harvest struct {
+	Date time.Time
+	crop string
+	yields_tons string
+	rainfall_mm string
+	temperature_avg string
+}
+
 func dateGenerator() time.Time {
 	rand.Seed(time.Now().UnixNano())
 
