@@ -13,4 +13,13 @@ type Harvest struct {
 	temperature_avg int32
 }
 
+type Stats struct {
+	Max float64
+	Min float64
+	Harvestotal int64
+	Tons float64
+	Hectares float64
+	Rainfall float64
+}
+
 

@@ -33,7 +33,8 @@ func yearFilter(harvis []Harvest, year int) []Harvest {
 	return harvs
 }
 
-
-
+func setCrops(harvis []Harvest, ) map[string]struct{} {
+	
+}
 
 
