@@ -18,24 +18,24 @@ import (
 
 func harvParser(record []string) Harvest {
 	harv := Harvest{}
-	date, err := time.Parse("2006-01-02", record[0])
+	date, err := time.Parse("2006-01-02", record[1])
 	if err == nil {
 		harv.Date = date
 	}
-	harv.crop = record[1]
-	hect, err := strconv.ParseFloat(record[2], 64)
+	harv.crop = record[2]
+	hect, err := strconv.ParseFloat(record[3], 64)
 	if err == nil {
 		harv.hectares = hect
 	}
-	yield, err := strconv.ParseFloat(record[3], 64)
+	yield, err := strconv.ParseFloat(record[4], 64)
 	if err == nil {
 		harv.yields_tons = yield
 	}
-	rainfa, err := strconv.Atoi(record[4])
+	rainfa, err := strconv.Atoi(record[5])
 	if err == nil {
 		harv.rainfall_mm = int32(rainfa)
 	}
-	tempera, err := strconv.Atoi(record[5])
+	tempera, err := strconv.Atoi(record[6])
 	if err == nil {
 		harv.temperature_avg = int32(tempera)
 	}
