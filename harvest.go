@@ -14,12 +14,14 @@ type Harvest struct {
 }
 
 type Stats struct {
+	Year int
 	Max float64
 	Min float64
 	Harvestotal int64
 	Tons float64
 	Hectares float64
-	Rainfall float64
+	Rainfall int32
+	Moy float64
 }
 
 
