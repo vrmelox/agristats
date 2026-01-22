@@ -64,6 +64,7 @@ func setCrops(harvis []Harvest) map[string]Stats {
 			}
 			crostats.Tons += cro.yields_tons
 			crostats.Rainfall += cro.rainfall_mm
+			crostats.Ratio = crostats.Tons / crostats.Hectares
 			cropMaps[cro.crop] = crostats
 		}
 	}

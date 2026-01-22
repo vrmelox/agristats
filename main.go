@@ -41,11 +41,8 @@ func main() {
 		totalHarvest := fmt.Sprintf("Total Harvests: %d", len(endStats))
 		fmt.Println(totalHarvest)
 		if (Crop == "all") {
-			fmt.Println("TOP 3 CROPS by YIELD:")
+			fmt.Println("CROPS by YIELD:")
 			for i, cro := range endStats {
-				if i > 2 {
-					return
-				}
 				se := fmt.Sprintf("%d.%s        : %.2f tons/hectare (avg)", i, cro.Cro, cro.Tons/cro.Hectares)
 				fmt.Println(se)
 			}
