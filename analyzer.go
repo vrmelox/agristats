@@ -7,6 +7,9 @@ import (
 )
 
 func cropFilter(harvis []Harvest, crop string) []Harvest {
+	if crop == "all" {
+		return harvis
+	}
 	harvs := make([]Harvest, 0)
 
 	for _, harv := range harvis {
@@ -41,6 +44,7 @@ func setCrops(harvis []Harvest) map[string]Stats {
 		stat := Stats{}
 		crostats, ok := cropMaps[cro.crop]
 		if !ok {
+			stat.Cro = cro.crop
 			stat.Year = cro.Date.Year()
 			stat.Harvestotal = 1
 			stat.Hectares = cro.hectares
@@ -64,6 +68,15 @@ func setCrops(harvis []Harvest) map[string]Stats {
 		}
 	}
 	return cropMaps
+}
+
+func orderCrops(harvis map[string]Stats) []Stats {
+	croStats := make([]Stats, 0)
+	for _, cro := range harvis {
+		croStats = append(croStats, cro)
+	}
+	sort.Sort(ByRatio(croStats))
+	return croStats
 }
 
 

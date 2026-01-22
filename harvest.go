@@ -14,6 +14,7 @@ type Harvest struct {
 }
 
 type Stats struct {
+	Cro string
 	Year int
 	Max float64
 	Min float64
@@ -22,6 +23,22 @@ type Stats struct {
 	Hectares float64
 	Rainfall int32
 	Moy float64
+	Ratio float64
 }
+
+type ByRatio []Stats
+
+func (a ByRatio) Len() int {
+	return len(a)
+}
+
+func (a ByRatio) Less(i, j int) bool {
+	return a[i].Ratio < a[j].Ratio
+}
+
+func (a ByRatio) Swap(i, j int) {
+	a[i], a[j] = a[j], a[i]
+}
+
 
 
