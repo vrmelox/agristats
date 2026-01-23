@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"sort"
 	"strings"
 	"time"
@@ -52,6 +53,7 @@ func setCrops(harvis []Harvest) map[string]Stats {
 			stat.Tons = cro.yields_tons
 			stat.Rainfall = cro.rainfall_mm
 			stat.Min = cro.yields_tons
+			stat.Ratio = stat.Tons / stat.Hectares
 			cropMaps[cro.crop] = stat
 		} else {
 			crostats.Harvestotal++
@@ -70,13 +72,20 @@ func setCrops(harvis []Harvest) map[string]Stats {
 	}
 	return cropMaps
 }
+func sortHarvis(harvis []Stats) []Stats {
+    sort.Slice(harvis, func(i, j int) bool {
+        return harvis[i].Ratio > harvis[j].Ratio
+    })
+    return harvis
+}
 
 func orderCrops(harvis map[string]Stats) []Stats {
 	croStats := make([]Stats, 0)
 	for _, cro := range harvis {
 		croStats = append(croStats, cro)
 	}
-	sort.Sort(ByRatio(croStats))
+	sortHarvis(croStats)
+	fmt.Println(croStats[0])
 	return croStats
 }
 

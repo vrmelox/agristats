@@ -48,7 +48,7 @@ func main() {
 			}
 			return
 		}
-		se := fmt.Sprintf("%d.%s        : %.2f tons/hectare (avg)", i, endStats[0].Cro, endStats[0].Tons/endStats[0].Hectares)
+		se := fmt.Sprintf("%d.%s        : %.2f tons/hectare (avg)", i, endStats[0].Cro, endStats[0].Ratio)
 		fmt.Println(se)
 	}
 }
